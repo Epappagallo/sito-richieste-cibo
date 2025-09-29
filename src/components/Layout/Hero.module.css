@@ -1,0 +1,44 @@
+.hero {
+  /* Imposta una posizione relativa per poter posizionare la card di sommario in modo assoluto */
+  position: relative;
+  /* La sezione Hero avrà l'altezza dell'immagine e del testo */
+}
+
+/* L'immagine deve coprire l'intera larghezza e avere un'altezza specifica */
+.mainImage {
+  width: 100%;
+  /* Imposta un'altezza fissa o un'altezza relativa per l'immagine */
+  height: 25rem; /* Esempio: 400px */
+  /* Assicurati che l'immagine copra bene lo spazio senza distorcersi */
+  object-fit: cover; 
+  /* Applica la leggera rotazione/inclinazione laterale se vuoi replicare l'effetto esatto */
+  transform: rotateZ(-5deg) translateY(-4rem); /* Regola i valori per l'effetto desiderato */
+  /* Sposta l'immagine leggermente fuori dallo schermo per l'effetto di inclinazione */
+  width: 110%; 
+  max-width: 100%; /* Impedisci lo scroll orizzontale */
+  z-index: 0;
+  overflow: hidden; /* Nasconde l'eccesso */
+}
+
+/* Stile per il box di testo che contiene il sommario */
+.summary {
+  position: absolute;
+  top: 0;
+  left: 50%; /* Inizia dal centro orizzontale */
+  transform: translate(-50%, 150px); /* Sposta a sinistra del 50% e in basso di 150px (regola) */
+  max-width: 45rem; /* Larghezza massima del box di testo */
+  width: 90%;
+  
+  /* Aspetto del box */
+  background-color: #383838;
+  color: white;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 1px 18px 10px rgba(0, 0, 0, 0.25);
+  
+  /* Assicurati che sia sopra l'immagine */
+  z-index: 10; 
+  
+  /* Testo */
+  text-align: center;
+}
