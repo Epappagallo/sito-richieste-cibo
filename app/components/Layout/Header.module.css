@@ -60,3 +60,47 @@
   min-width: 1.5rem;
   text-align: center;
 }
+
+/* --- Stili per la Navigazione --- */
+
+/* Contenitore della navigazione */
+.nav {
+    /* Assicura che la nav si allinei al centro tra h1 e button */
+    display: flex;
+    align-items: center;
+    /* Aggiunge un po' di spazio ai lati, se necessario */
+    padding: 0 2rem; 
+}
+
+/* Lista degli elementi */
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem; /* Spazio tra i link (Home, Merch, Profile) */
+}
+
+/* Stile base del link (NavLink) */
+.navLink {
+    text-decoration: none;
+    color: white; /* I link sono bianchi come il testo dell'header */
+    font-weight: 500; /* Leggermente meno bold del titolo */
+    padding: 0.5rem 0;
+    /* Usa un bordo trasparente per l'effetto hover/attivo */
+    border-bottom: 2px solid transparent; 
+    transition: all 0.2s ease-in-out;
+}
+
+/* Effetto hover per il link */
+.navLink:hover {
+    color: #ffd700; /* Un oro/giallo per l'effetto hover */
+    border-bottom-color: #ffd700;
+}
+
+/* Stile del link attivo (quando l'utente è sulla pagina) */
+.active {
+    color: #ffd700;
+    border-bottom-color: white; /* Il link attivo ha un bordo bianco */
+    font-weight: bold;
+}
