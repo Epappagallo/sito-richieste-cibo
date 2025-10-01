@@ -1,5 +1,8 @@
+// routes/login.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+// Importa il tuo hook personalizzato
+import { useUser } from '../context/UserContext'; 
 
 /**
  * Funzione loader richiesta da React Router.
@@ -9,33 +12,41 @@ export function loader() {
 }
 
 /**
- * Pagina di Login con form e reindirizzamento a /profile tramite useNavigate.
+ * Pagina di Login con form e gestione dell'accesso tramite UserContext.
  */
 export default function Login() {
-  // Inizializza l'hook useNavigate
   const navigate = useNavigate();
+  // Ottieni login e user dal contesto
+  const { login, user } = useUser(); 
   
-  // Stato per l'input dello username
   const [username, setUsername] = useState('');
-  // Stato per i messaggi di feedback
   const [message, setMessage] = useState('');
 
+  // Se l'utente è già loggato, reindirizza subito al profilo
+  if (user?.loggedIn) {
+      navigate('/profile', { replace: true });
+      return null; // Non renderizzare il form
+  }
+
   /**
-   * Gestisce l'invio del form.
-   * Al successo, reindirizza l'utente a /profile con lo username nello stato.
-   */
+    * Gestisce l'invio del form e usa la funzione login del context.
+    */
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault(); 
     setMessage('');
 
-    if (username.trim() === '') {
+    const trimmedUsername = username.trim();
+
+    if (trimmedUsername === '') {
       setMessage('Per favore, inserisci un nome utente per accedere.');
       return;
     }
 
-    // Usa useNavigate per reindirizzare alla rotta /profile.
-    // L'oggetto { state: { username } } è uno stato che può essere letto da /profile.
-    navigate('/profile', { state: { username } }); 
+    // *** Usa la funzione login dal UserContext ***
+    login(trimmedUsername);
+    
+    // Reindirizza l'utente alla rotta /profile.
+    navigate('/profile'); 
   };
 
   return (

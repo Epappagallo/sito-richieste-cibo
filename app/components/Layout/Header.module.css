@@ -1,10 +1,12 @@
+/* Header.module.css */
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 5rem;
-  background-color: #8b4513;
+  background-color: #8b4513; /* Marrone scuro per l'header */
   color: white;
   display: flex;
   justify-content: space-between;
@@ -20,6 +22,8 @@
   margin: 0;
   color: white;
 }
+
+/* --- Stili per il Pulsante Carrello --- */
 
 .button {
   cursor: pointer;
@@ -63,44 +67,84 @@
 
 /* --- Stili per la Navigazione --- */
 
-/* Contenitore della navigazione */
 .nav {
-    /* Assicura che la nav si allinei al centro tra h1 e button */
-    display: flex;
-    align-items: center;
-    /* Aggiunge un po' di spazio ai lati, se necessario */
-    padding: 0 2rem; 
+  display: flex;
+  align-items: center;
+  padding: 0 2rem; 
 }
 
-/* Lista degli elementi */
 .nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 2rem; /* Spazio tra i link (Home, Merch, Profile) */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
 }
 
-/* Stile base del link (NavLink) */
 .navLink {
-    text-decoration: none;
-    color: white; /* I link sono bianchi come il testo dell'header */
-    font-weight: 500; /* Leggermente meno bold del titolo */
-    padding: 0.5rem 0;
-    /* Usa un bordo trasparente per l'effetto hover/attivo */
-    border-bottom: 2px solid transparent; 
-    transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent; 
+  transition: all 0.2s ease-in-out;
 }
 
-/* Effetto hover per il link */
 .navLink:hover {
-    color: #ffd700; /* Un oro/giallo per l'effetto hover */
-    border-bottom-color: #ffd700;
+  color: #ffd700;
+  border-bottom-color: #ffd700;
 }
 
-/* Stile del link attivo (quando l'utente è sulla pagina) */
 .active {
-    color: #ffd700;
-    border-bottom-color: white; /* Il link attivo ha un bordo bianco */
-    font-weight: bold;
+  color: #ffd700;
+  border-bottom-color: white; 
+  font-weight: bold;
+}
+
+/* --- ESERCIZIO 1 & 3: Stili per Autenticazione e Tema --- */
+
+.authArea {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem; 
+}
+
+.userGreeting {
+  color: #ffd700;
+  font-weight: bold;
+  margin-right: 1rem;
+  font-size: 1rem;
+}
+
+.authButton, .themeToggle {
+  cursor: pointer;
+  font: inherit;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 0.5rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.authButton:hover, .themeToggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffd700;
+}
+
+.themeToggle {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  border: 1px solid #ffd700;
 }
